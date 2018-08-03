@@ -10,6 +10,7 @@ public class PauseMenu : MonoBehaviour {
     public GameObject pauseMenuUI;
     public GameObject controlScreenUI;
     public GameObject quitConfirmUI;
+    public GameObject menuConfirmUI;
 
 	// Use this for initialization
 	void Start () {
@@ -73,6 +74,13 @@ public class PauseMenu : MonoBehaviour {
         pauseMenuUI.SetActive(true);
         controlScreenUI.SetActive(false);
         quitConfirmUI.SetActive(false);
+        menuConfirmUI.SetActive(false);
+    }
+
+    public void MenuConfrim()
+    {
+        pauseMenuUI.SetActive(false);
+        menuConfirmUI.SetActive(true);
     }
 
 }
