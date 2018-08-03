@@ -7,7 +7,7 @@ public class Player : MonoBehaviour {
     public float jumpHeight = 4;
     public float timeToJumpApex = .4f;
     float accelerationTimeAirborne = .2f;
-    float accelerationTImeGrounded = .1f;
+    float accelerationTimeGrounded = .1f;
     float moveSpeed = 6;
 
     float gravity;
@@ -39,8 +39,18 @@ public class Player : MonoBehaviour {
         }
 
         float targetVelocityX  = input.x * moveSpeed;
-        velocity.x = Mathf.SmoothDamp(velocity.x, targetVelocityX, ref velocityXSmoothing, (controller.collisions.below)?accelerationTImeGrounded:accelerationTimeAirborne);
+        velocity.x = Mathf.SmoothDamp(velocity.x, targetVelocityX, ref velocityXSmoothing, (controller.collisions.below)?accelerationTimeGrounded:accelerationTimeAirborne);
         velocity.y += gravity * Time.deltaTime;
         controller.Move(velocity * Time.deltaTime);
 	}
+
+
+    //Detects collisions with interactive objects and calls function on them (Call sequence check!)
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if (collision.tag == "Interactive" && Input.GetKeyDown(KeyCode.E))
+        {
+            Debug.Log("Collided");
+        }
+    }
 }
