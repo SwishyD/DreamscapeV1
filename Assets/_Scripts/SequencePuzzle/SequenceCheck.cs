@@ -42,10 +42,13 @@ public class SequenceCheck : MonoBehaviour {
         }
 	}
 
-    private void OnMouseUp()
+    public void OnTriggerStay2D(Collider2D col)
     {
-        puzzleSounds.PlayOneShot(tune);
-        playerSequence += gameObject.name;
-        totalDigits += 1;
+        if (col.gameObject.tag == "Player" && Input.GetKeyDown(KeyCode.E))
+        {
+            puzzleSounds.PlayOneShot(tune);
+            playerSequence += gameObject.name;
+            totalDigits += 1;
+        }
     }
 }
