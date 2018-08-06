@@ -9,6 +9,8 @@ public class SequenceCheck : MonoBehaviour {
     public AudioClip success;
     public AudioClip failure;
 
+    public ParticleSystem ps;
+
     public static string correctSequence = "121213456";
     public static string playerSequence = "";
 
@@ -22,6 +24,7 @@ public class SequenceCheck : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         //Debug.Log(playerSequence);
+        
         if (totalDigits == 9)
         {
             if(playerSequence == correctSequence)
@@ -44,11 +47,14 @@ public class SequenceCheck : MonoBehaviour {
 
     public void OnTriggerStay2D(Collider2D col)
     {
-        if (col.gameObject.tag == "Player" && Input.GetKeyDown(KeyCode.E))
+        if (col.tag == "Player" && Input.GetKeyDown(KeyCode.E))
         {
+            ps.Play();
+            Debug.Log("Activated");
             puzzleSounds.PlayOneShot(tune);
             playerSequence += gameObject.name;
             totalDigits += 1;
+            
         }
     }
 }
