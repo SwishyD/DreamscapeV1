@@ -45,12 +45,6 @@ public class Player : MonoBehaviour {
 	}
 
 
-    //Detects collisions with interactive objects and calls function on them (Call sequence check!)
-    private void OnTriggerStay2D(Collider2D collision)
-    {
-        if (collision.tag == "Interactive" && Input.GetKeyDown(KeyCode.E))
-        {
-            Debug.Log("Collided");
-        }
-    }
+    
+   
 }

@@ -17,14 +17,14 @@ public class Controller2D : RaycastController {
         UpdateRaycastOrigins();
         collisions.Reset();
 
-        //if (velocity.x != 0)
-        //{
+        if (velocity.x != 0)
+        {
             HorizontalCollisions(ref velocity);
-        //}
-        //if (velocity.y != 0)
-        //{
+        }
+        if (velocity.y != 0)
+        {
             VerticalCollisions(ref velocity);
-        //}
+        }
 
         transform.Translate(velocity);
 
@@ -47,13 +47,7 @@ public class Controller2D : RaycastController {
 
             if (hit)
             {
-                if (hit.transform.tag == "Interactive")
-                {
-                    //(Input.GetKeyDown(KeyCode.E))
-                    //Debug.Log("Collided");
-                    //continue;
-                    
-                }
+                
                 if(hit.distance == 0)
                 {
                     continue;

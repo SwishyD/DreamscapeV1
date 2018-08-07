@@ -8,24 +8,14 @@ public class Collision : MonoBehaviour {
 	void Start () {
 		
 	}
-	
-	// Update is called once per frame
-	void Update () {
-        RaycastHit2D hitLeft = Physics2D.Raycast(transform.position, Vector3.left, 1);
-        if (hitLeft)
+
+    //Detects collisions with player and calls function (Call sequence check!)
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if (collision.tag == "Player" && Input.GetKeyDown(KeyCode.E))
         {
-            if(hitLeft.transform.tag == "Player")
-            {
-                Debug.Log("Collided");
-            }
-        }
-        RaycastHit2D hitRight = Physics2D.Raycast(transform.position, Vector3.right, 1);
-        Debug.DrawRay(transform.position, Vector3.right, Color.red);
-        if (hitRight)
-        {
-            Debug.Log(hitRight.transform.tag);
+            Debug.Log("Collided");
         }
     }
-
-   
 }
+ 
