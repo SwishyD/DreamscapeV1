@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SequenceCheck : MonoBehaviour {
+public class SequenceCheckFinal : MonoBehaviour {
 
     AudioSource puzzleSounds;
     public AudioClip tune;
