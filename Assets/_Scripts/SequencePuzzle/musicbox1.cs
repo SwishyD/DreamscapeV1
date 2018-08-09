@@ -2,14 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class musicbox : MonoBehaviour {
+public class musicbox1 : MonoBehaviour {
 
     AudioSource puzzleSounds;
     public AudioClip tune;
     bool canPlay = true;
     public int waitTimer;
+    public ParticleSystem note1;
     
-    //public ParticleSystem ps;
+    public ParticleSystem note2;
 
   
 
@@ -39,6 +40,13 @@ public class musicbox : MonoBehaviour {
 
     IEnumerator waitTime()
     {
+        note1.Play();
+        yield return new WaitForSeconds(waitTimer);
+        note2.Play();
+        yield return new WaitForSeconds(waitTimer);
+        note1.Play();
+        yield return new WaitForSeconds(waitTimer);
+        note2.Play();
         yield return new WaitForSeconds(waitTimer);
         canPlay = true;
     }
