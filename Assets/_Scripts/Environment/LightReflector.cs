@@ -7,14 +7,14 @@ public class LightReflector : MonoBehaviour {
     public string direction;
     public bool isActive;
 
+    public GameObject beamLocation;
     public GameObject lightBeamRef;
     GameObject lightBeam;
-    public GameObject beamLocation;
 
-    BoxCollider2D reflectorCollider;
+    GameObject beamIn;
+    
 
 	void Start () {
-        reflectorCollider = GetComponent<BoxCollider2D>();
 	}
 	
 	// Update is called once per frame
@@ -44,6 +44,7 @@ public class LightReflector : MonoBehaviour {
         }
         if(collision.tag == "LightBeam")
         {
+            beamIn = collision.gameObject;
             isActive = true;
         }
         
@@ -51,8 +52,8 @@ public class LightReflector : MonoBehaviour {
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if(collision.tag == "Reflector")
-        collision.gameObject.GetComponent<LightReflector>().isActive = false;
+        if (collision.gameObject == beamIn)
+            isActive = false;
     }
 
 }

@@ -17,8 +17,13 @@ public class Player : MonoBehaviour {
 
     Controller2D controller;
 
-	void Start () {
+    private Animator anim;
+    private SpriteRenderer rend;
+
+    void Start () {
         controller = GetComponent<Controller2D>();
+        rend = GetComponent<SpriteRenderer>();
+        anim = GetComponent<Animator>();
 
         gravity = -(2 * jumpHeight) / Mathf.Pow(timeToJumpApex, 2);
         jumpVelocity = Mathf.Abs(gravity) * timeToJumpApex;
@@ -30,12 +35,29 @@ public class Player : MonoBehaviour {
         if (controller.collisions.above || controller.collisions.below)
         {
             velocity.y = 0;
+            anim.SetBool("isJumping", false);
         }
         Vector2 input = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
 
         if(Input.GetKeyDown(KeyCode.Space) && controller.collisions.below)
         {
             velocity.y = jumpVelocity;
+            anim.SetBool("isJumping", true);
+        }
+
+        if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.A))
+        {
+            anim.SetBool("isRunning", true);
+            rend.flipX = true;
+        }
+        else if (Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D))
+        {
+            anim.SetBool("isRunning", true);
+            rend.flipX = false;
+        }
+        else
+        {
+            anim.SetBool("isRunning", false);
         }
 
         float targetVelocityX  = input.x * moveSpeed;
