@@ -12,6 +12,12 @@ EditorBuildSettings:
     path: Assets/_Scenes/Cody/MenuScreenCody.unity
     guid: 735a7620a9fdd3943b0ac0a0b41dc07d
   - enabled: 1
+    path: Assets/_Scenes/Cody/openingCody.unity
+    guid: dada786f0bd02284e8b26ff22fdf7c35
+  - enabled: 1
     path: Assets/_Scenes/Cody/lvl1Cody.unity
     guid: 412d6e02533eded468b609ee0bda2dc7
+  - enabled: 1
+    path: Assets/_Scenes/Cody/lvl2Cody.unity
+    guid: e6f88dc4c01a7944198cf6965f0a1244
   m_configObjects: {}

@@ -971,6 +971,7 @@ MonoBehaviour:
   tune: {fileID: 8300000, guid: 779b5aff50a5a1a4694139e04c235173, type: 3}
   success: {fileID: 8300000, guid: 430380e52602b1541b7bd38ed648fc7d, type: 3}
   failure: {fileID: 8300000, guid: 649ffff3de2d0e0499e83eb6f5da8a37, type: 3}
+  ps: {fileID: 0}
 --- !u!114 &114238569170958074
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -985,6 +986,7 @@ MonoBehaviour:
   tune: {fileID: 8300000, guid: 57c11447affdfd949b6a1028b86b85fa, type: 3}
   success: {fileID: 8300000, guid: 430380e52602b1541b7bd38ed648fc7d, type: 3}
   failure: {fileID: 8300000, guid: 649ffff3de2d0e0499e83eb6f5da8a37, type: 3}
+  ps: {fileID: 0}
 --- !u!114 &114428480557559172
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -999,6 +1001,7 @@ MonoBehaviour:
   tune: {fileID: 8300000, guid: fb69886a9bf04d2438281a5590dca29d, type: 3}
   success: {fileID: 8300000, guid: 430380e52602b1541b7bd38ed648fc7d, type: 3}
   failure: {fileID: 8300000, guid: 649ffff3de2d0e0499e83eb6f5da8a37, type: 3}
+  ps: {fileID: 0}
 --- !u!114 &114659310991597470
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1013,6 +1016,7 @@ MonoBehaviour:
   tune: {fileID: 8300000, guid: 45a6148c6e666dc4589ac007ebf07850, type: 3}
   success: {fileID: 8300000, guid: 430380e52602b1541b7bd38ed648fc7d, type: 3}
   failure: {fileID: 8300000, guid: 649ffff3de2d0e0499e83eb6f5da8a37, type: 3}
+  ps: {fileID: 0}
 --- !u!114 &114903231955168866
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1027,6 +1031,7 @@ MonoBehaviour:
   tune: {fileID: 8300000, guid: 21888b273ee6102448f85848f1949655, type: 3}
   success: {fileID: 8300000, guid: 430380e52602b1541b7bd38ed648fc7d, type: 3}
   failure: {fileID: 8300000, guid: 649ffff3de2d0e0499e83eb6f5da8a37, type: 3}
+  ps: {fileID: 0}
 --- !u!114 &114956874985316494
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1041,6 +1046,7 @@ MonoBehaviour:
   tune: {fileID: 8300000, guid: bd9d8d32814c0954f8bd8b532016dd7a, type: 3}
   success: {fileID: 8300000, guid: 430380e52602b1541b7bd38ed648fc7d, type: 3}
   failure: {fileID: 8300000, guid: 649ffff3de2d0e0499e83eb6f5da8a37, type: 3}
+  ps: {fileID: 0}
 --- !u!212 &212119303017038664
 SpriteRenderer:
   m_ObjectHideFlags: 1

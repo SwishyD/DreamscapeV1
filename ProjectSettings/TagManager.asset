@@ -5,6 +5,9 @@ TagManager:
   serializedVersion: 2
   tags:
   - Interactive
+  - interactive
+  - Checkpoint
+  - Lantern
   layers:
   - Default
   - TransparentFX
