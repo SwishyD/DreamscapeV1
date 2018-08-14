@@ -5,8 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour {
 
+    private static bool created = false;
 
-    
     public GameObject deathZone;
     public GameObject player;
 
@@ -20,6 +20,12 @@ public class GameManager : MonoBehaviour {
 
     void Awake()
     {
+        if (!created)
+        {
+            DontDestroyOnLoad(gameObject);
+            created = true;
+            Debug.Log("Awake: " + gameObject);
+        }
         Time.timeScale = 1;
         if (instance == null)
         {
@@ -41,7 +47,7 @@ public class GameManager : MonoBehaviour {
     {
         if (_lanternAcquired == true)
         {
-            SceneManager.LoadScene("lvl2Cody");
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         }
         else
         {
