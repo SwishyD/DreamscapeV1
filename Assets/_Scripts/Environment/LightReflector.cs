@@ -11,10 +11,15 @@ public class LightReflector : MonoBehaviour {
     public GameObject lightBeamRef;
     GameObject lightBeam;
 
+    public Sprite deactivated;
+    public Sprite activtaed;
+
     GameObject beamIn;
+    private SpriteRenderer rend;
     
 
 	void Start () {
+        rend = GetComponent<SpriteRenderer>();
 	}
 	
 	// Update is called once per frame
@@ -45,6 +50,7 @@ public class LightReflector : MonoBehaviour {
         if(collision.tag == "LightBeam")
         {
             beamIn = collision.gameObject;
+            rend.sprite = activtaed;
             isActive = true;
         }
         
@@ -53,6 +59,7 @@ public class LightReflector : MonoBehaviour {
     private void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.gameObject == beamIn)
+            rend.sprite = deactivated;
             isActive = false;
     }
 

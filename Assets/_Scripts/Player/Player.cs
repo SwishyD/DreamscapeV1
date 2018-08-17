@@ -20,6 +20,9 @@ public class Player : MonoBehaviour {
     private Animator anim;
     private SpriteRenderer rend;
 
+    public GameObject dustEffect;
+    private bool spawnDust;
+
     void Start () {
         controller = GetComponent<Controller2D>();
         rend = GetComponent<SpriteRenderer>();
@@ -35,6 +38,11 @@ public class Player : MonoBehaviour {
         if (controller.collisions.above || controller.collisions.below)
         {
             velocity.y = 0;
+            if (spawnDust == true)
+            {
+                Instantiate(dustEffect, transform.position, Quaternion.identity);
+            }
+            spawnDust = false;
             anim.SetBool("isJumping", false);
         }
         Vector2 input = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
@@ -42,6 +50,7 @@ public class Player : MonoBehaviour {
         if(Input.GetKeyDown(KeyCode.Space) && controller.collisions.below)
         {
             velocity.y = jumpVelocity;
+            spawnDust = true;
             anim.SetBool("isJumping", true);
         }
 
