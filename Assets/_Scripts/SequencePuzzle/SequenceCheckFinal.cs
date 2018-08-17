@@ -16,14 +16,14 @@ public class SequenceCheckFinal : MonoBehaviour {
 
     public static int totalDigits = 0;
 
-	// Use this for initialization
+	
 	void Start () {
         puzzleSounds = GetComponent<AudioSource>();
     }
 	
-	// Update is called once per frame
+	
 	void Update () {
-        //Debug.Log(playerSequence);
+       
         
         if (totalDigits == 9)
         {
@@ -49,14 +49,14 @@ public class SequenceCheckFinal : MonoBehaviour {
     {
         if (col.tag == "Player" && Input.GetKeyDown(KeyCode.E))
         {
-<<<<<<< HEAD
+
 
             ps.Play();
 
 
-=======
+
             ps.Play();
->>>>>>> Temp
+
             Debug.Log("Activated");
             puzzleSounds.PlayOneShot(tune);
             playerSequence += gameObject.name;
