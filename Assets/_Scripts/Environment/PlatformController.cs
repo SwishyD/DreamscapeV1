@@ -195,7 +195,7 @@ public class PlatformController : RaycastController {
         }
     }
 
-    private void OnDrawGizmos()
+  /*  private void OnDrawGizmos()
     {
         if (localWaypoints != null)
         {
@@ -208,5 +208,5 @@ public class PlatformController : RaycastController {
                 Gizmos.DrawLine(globalWaypointPos - Vector3.left * size, globalWaypointPos + Vector3.left * size);
             }
         }
-    }
+    }*/
 }
