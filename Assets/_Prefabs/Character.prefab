@@ -11,6 +11,21 @@ Prefab:
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 1793735789391898}
   m_IsPrefabParent: 1
+--- !u!1 &1378582800118456
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4136813701167002}
+  m_Layer: 9
+  m_Name: dustSpawn
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &1793735789391898
 GameObject:
   m_ObjectHideFlags: 0
@@ -24,14 +39,27 @@ GameObject:
   - component: {fileID: 114284878623363404}
   - component: {fileID: 114281436505646354}
   - component: {fileID: 61771730695653090}
-  - component: {fileID: 50095597473839922}
-  m_Layer: 8
+  - component: {fileID: 50032053110470880}
+  m_Layer: 9
   m_Name: Character
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!4 &4136813701167002
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1378582800118456}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -6.39, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4262881076593448}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4262881076593448
 Transform:
   m_ObjectHideFlags: 1
@@ -39,13 +67,14 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1793735789391898}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.838, y: 0.246, z: 0}
-  m_LocalScale: {x: 0.18865973, y: 0.18865973, z: 0.18865973}
-  m_Children: []
+  m_LocalPosition: {x: 3.78, y: 1.24, z: 0}
+  m_LocalScale: {x: 0.3, y: 0.3, z: 0.3}
+  m_Children:
+  - {fileID: 4136813701167002}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!50 &50095597473839922
+--- !u!50 &50032053110470880
 Rigidbody2D:
   serializedVersion: 4
   m_ObjectHideFlags: 1
@@ -64,7 +93,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!61 &61771730695653090
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -77,7 +106,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.22, y: 0.2}
+  m_Offset: {x: -0.16, y: 0.02}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -88,7 +117,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 8.88, y: 13.37}
+  m_Size: {x: 3.78, y: 13.11}
   m_EdgeRadius: 0
 --- !u!95 &95054943882718622
 Animator:
@@ -121,9 +150,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   collisionMask:
     serializedVersion: 2
-    m_Bits: 512
-  horizontalRayCount: 4
-  verticalRayCount: 4
+    m_Bits: 256
+  horizontalRayCount: 10
+  verticalRayCount: 10
   horizontalRaySpacing: 0
   verticalRaySpacing: 0
   collider: {fileID: 0}
@@ -141,6 +170,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   jumpHeight: 4
   timeToJumpApex: 0.4
+  dustEffect: {fileID: 1855460937294036, guid: 849ba2fb10790324195d11768524e26a, type: 2}
+  dustSpawn: {fileID: 1378582800118456}
 --- !u!212 &212202741384272154
 SpriteRenderer:
   m_ObjectHideFlags: 1

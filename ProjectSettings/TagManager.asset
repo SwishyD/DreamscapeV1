@@ -3,11 +3,9 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
+  tags:
   - Lantern
   - Checkpoint
-  - LightBeam
-  - Reflector
-  - Interactive
   layers:
   - Default
   - TransparentFX
@@ -17,10 +15,10 @@ TagManager:
   - UI
   - 
   - 
-  - Player
   - Obstacles
-  - Reflector
-  - Interactive
+  - Player
+  - 
+  - 
   - 
   - 
   - 
