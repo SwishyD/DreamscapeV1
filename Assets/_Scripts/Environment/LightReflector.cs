@@ -59,8 +59,10 @@ public class LightReflector : MonoBehaviour {
     private void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.gameObject == beamIn)
+        {
             rend.sprite = deactivated;
             isActive = false;
+        }
     }
 
 }

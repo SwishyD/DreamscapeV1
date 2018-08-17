@@ -30,8 +30,6 @@ public class Player : MonoBehaviour {
     private Animator anim;
     private SpriteRenderer rend;
 
-    public GameObject dustEffect;
-    private bool spawnDust;
 
     void Start () {
         controller = GetComponent<Controller2D>();
