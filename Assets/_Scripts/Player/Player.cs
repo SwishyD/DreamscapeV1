@@ -10,12 +10,22 @@ public class Player : MonoBehaviour {
     float accelerationTimeGrounded = .1f;
     float moveSpeed = 6;
 
+    public bool canMove = false;
+
+    AudioSource sound;
+    public AudioClip thud;
+    public GameObject dustEffect;
+    private bool spawnDust;
+    public GameObject dustSpawn;
+
     float gravity;
     float jumpVelocity;
     Vector3 velocity;
     float velocityXSmoothing;
 
     Controller2D controller;
+
+    Vector2 input;
 
     private Animator anim;
     private SpriteRenderer rend;
@@ -27,7 +37,7 @@ public class Player : MonoBehaviour {
         controller = GetComponent<Controller2D>();
         rend = GetComponent<SpriteRenderer>();
         anim = GetComponent<Animator>();
-
+        sound = GetComponent<AudioSource>();
         gravity = -(2 * jumpHeight) / Mathf.Pow(timeToJumpApex, 2);
         jumpVelocity = Mathf.Abs(gravity) * timeToJumpApex;
 	}
@@ -40,26 +50,31 @@ public class Player : MonoBehaviour {
             velocity.y = 0;
             if (spawnDust == true)
             {
-                Instantiate(dustEffect, transform.position, Quaternion.identity);
+                GameObject tempParticle = Instantiate(dustEffect, dustSpawn.transform.position, Quaternion.identity);
+                sound.PlayOneShot(thud);
+                Destroy(tempParticle, 1);
             }
             spawnDust = false;
             anim.SetBool("isJumping", false);
         }
-        Vector2 input = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
+        if (canMove == true)
+        {
+            input = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
+        }
 
-        if(Input.GetKeyDown(KeyCode.Space) && controller.collisions.below)
+        if((Input.GetKeyDown(KeyCode.Space) && controller.collisions.below) && canMove == true)
         {
             velocity.y = jumpVelocity;
             spawnDust = true;
             anim.SetBool("isJumping", true);
         }
 
-        if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.A))
+        if ((Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.A)) && canMove == true)
         {
             anim.SetBool("isRunning", true);
             rend.flipX = true;
         }
-        else if (Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D))
+        else if ((Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D)) && canMove == true)
         {
             anim.SetBool("isRunning", true);
             rend.flipX = false;

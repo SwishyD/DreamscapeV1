@@ -49,10 +49,14 @@ public class SequenceCheckFinal : MonoBehaviour {
     {
         if (col.tag == "Player" && Input.GetKeyDown(KeyCode.E))
         {
+<<<<<<< HEAD
 
             ps.Play();
 
 
+=======
+            ps.Play();
+>>>>>>> Temp
             Debug.Log("Activated");
             puzzleSounds.PlayOneShot(tune);
             playerSequence += gameObject.name;
