@@ -5,7 +5,7 @@ using UnityEngine;
 public class LightReflector : MonoBehaviour {
 
     public string direction;
-    public bool isActive;
+    public bool isActive = false;
 
     public GameObject beamLocation;
     public GameObject lightBeamRef;
@@ -20,6 +20,7 @@ public class LightReflector : MonoBehaviour {
 
 	void Start () {
         rend = GetComponent<SpriteRenderer>();
+        rend.sprite = deactivated;
 	}
 	
 	// Update is called once per frame
