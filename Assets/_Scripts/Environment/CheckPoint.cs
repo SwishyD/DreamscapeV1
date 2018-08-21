@@ -6,7 +6,9 @@ public class CheckPoint : MonoBehaviour {
 
     public GameObject deathZone;
     public GameObject[] platforms;
+    public GameObject hoverButton;
     public bool deathZoneMove = true;
+    public GameObject partcles;
 
     // Use this for initialization
     void Start () {
@@ -19,8 +21,11 @@ public class CheckPoint : MonoBehaviour {
 
     public void OnTriggerStay2D(Collider2D col)
     {
+        hoverButton.SetActive(true);
+
         if (col.tag == "Player" && Input.GetKeyDown(KeyCode.E))
         {
+            partcles.SetActive(true);
             GameManager.instance.currentCheckpoint = gameObject.transform.position;
 
             if (deathZoneMove == true)
@@ -33,5 +38,10 @@ public class CheckPoint : MonoBehaviour {
             }
 
         }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        hoverButton.SetActive(false);
     }
 }
