@@ -6,14 +6,19 @@ using UnityEngine.UI;
 
 public class PauseMenu : MonoBehaviour {
 
+
     public static bool gameIsPaused = false;
     public GameObject pauseMenuUI;
     public GameObject controlScreenUI;
     public GameObject quitConfirmUI;
     public GameObject menuConfirmUI;
 
-	// Use this for initialization
-	void Start () {
+    public static bool controlActive = false;
+    public static bool quitActive = false;
+    public static bool menuActive = false;
+
+    // Use this for initialization
+    void Start () {
        
     }
 	
@@ -23,7 +28,29 @@ public class PauseMenu : MonoBehaviour {
         {
             if (gameIsPaused)
             {
-                Resume();
+                if (controlActive == true)
+                {
+                    ReturnToPause();
+                    controlActive = false;
+
+                }
+                else if (menuActive == true)
+                {
+                    ReturnToPause();
+                    menuActive = false;
+                    
+                }
+                else if (quitActive == true)
+                {
+                    ReturnToPause();
+                    quitActive = false;
+                    
+                }
+              
+                else
+                {
+                    Resume();
+                }
             }
             else
             {
@@ -48,6 +75,7 @@ public class PauseMenu : MonoBehaviour {
 
     public void QuitGameConfrim()
     {
+        quitActive = true;
         pauseMenuUI.SetActive(false);
         quitConfirmUI.SetActive(true);
     }
@@ -65,6 +93,7 @@ public class PauseMenu : MonoBehaviour {
 
     public void ControlScreen()
     {
+        controlActive = true;
         pauseMenuUI.SetActive(false);
         controlScreenUI.SetActive(true);
     }
@@ -79,6 +108,7 @@ public class PauseMenu : MonoBehaviour {
 
     public void MenuConfrim()
     {
+        menuActive = true;
         pauseMenuUI.SetActive(false);
         menuConfirmUI.SetActive(true);
     }
